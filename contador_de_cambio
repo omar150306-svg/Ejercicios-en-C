@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main()
+
+{
+    int precio, pago, cambio, billetes;
+    
+    printf("Captura el precio y pago:\n");
+    scanf("%d %d", &pago, &precio);
+    
+    cambio = pago - precio;
+    
+    printf("El cambio a devolver es de %d$\n", cambio);
+    printf("Entregar:\n");
+    
+    billetes = cambio / 500;
+    printf("\n %d billetes de 500", billetes);
+    cambio = cambio%500;
+    
+    billetes = cambio/200;
+    printf("\n %d billetes de 200", billetes);
+    cambio = cambio%200;
+    
+    billetes = cambio / 100 ;
+    printf("\n %d billetes de 100", billetes);
+    cambio = cambio%100;
+    
+    billetes = cambio/50;
+    printf("\n %d billetes de 50", billetes);
+    cambio = cambio%50;
+    
+    billetes = cambio / 20  ;
+    printf("\n %d billetes de 20", billetes);
+    cambio = cambio%20;
+    
+    billetes = cambio / 10 ;
+    printf("\n %d monedas de 10", billetes);
+    cambio = cambio%10;
+    
+    billetes = cambio/5;
+    printf("\n %d monedas de 5", billetes);
+    cambio = cambio%5;
+    
+    billetes = cambio / 2  ;
+    printf("\n %d monedas de 2", billetes);
+    
+    printf("\n %d monedas de 1", cambio%2); 
+    
+    return 0;
+}
