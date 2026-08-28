@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main()
+{
+    int diaH,mesH,annoH,diaN,mesN,annoN,dia,meses,mesAnt,anno;
+    
+    printf("Capture la fecha de hoy (DD,MM,AAAA): \n");
+    scanf("%d %d %d",&diaH,&mesH,&annoH);
+    printf("Capture la fecha de nacimiento (DD,MM,AAAA): \n");
+    scanf("%d %d %d",&diaN,&mesN,&annoN);
+    //Cálculo para años
+    anno = annoH - annoN;
+    if((mesH < mesN) || ((mesH == mesN) && (diaH < diaN)))
+    anno--;
+    //Cálculo para meses
+if(mesH >= mesN)
+    meses = mesH - mesN;
+else
+    meses = 12 - mesN + mesH;
+
+if(diaH < diaN)
+    meses--;
+//Caso muy específico, cuando el mes sea igual pero el día hoy es menor al día de nacimiento
+if(meses < 0)
+    meses += 12;
+    //Cálculo para días
+    if(diaH >= diaN)
+    dia = diaH - diaN;
+    else{
+        mesAnt = (mesH > 1)? (mesH-1) : 12;
+    }
+        if((mesAnt == 4 ) || (mesAnt == 6 ) || ( mesAnt == 9 ) || (mesAnt == 11 ))
+            dia = 30 - diaN + diaH;
+        if((mesAnt == 1 ) || (mesAnt == 3 ) || ( mesAnt == 5 ) || (mesAnt == 7) || (mesAnt == 8) || (mesAnt == 10) || (mesAnt == 12))
+            dia = 31 - diaN + diaH;
+        if ((mesAnt == 2) && ( anno % 4 == 0 ))
+            dia = 29 - diaN + diaH;
+        if ((mesAnt == 2) && ( anno % 4 != 0))
+            dia = 28 - diaN + diaH;
+    
+    //Mensaje de salida
+    printf("Tu edad exacta es de: %d día(s), %d mes(es), %d año(s).", dia, meses, anno);
+    
+    return 0;
+}
